@@ -1,10 +1,39 @@
 <mat-toolbar color="primary">
   <span>My Application</span>
-  <button mat-button routerLink="login">
-    <mat-icon >login</mat-icon>
-    Login
-  </button>
+  <ng-container *ngIf="authService.curentUser$ | async as user; else loginButton">
+
+    <button mat-button [mat-menu-trigger-for]="userMenu" >
+      <span class="button">
+        <span class="centrum"><mat-icon>account_circle</mat-icon></span>
+
+        <span class="centrum">{{user.displayName}}</span>
+        <span class="centrum"><mat-icon>expand_more</mat-icon></span>
+      </span>
+      
+
+
+    </button>
+
+  </ng-container>
+  <ng-template #loginButton>
+    <button mat-button routerLink="login">
+      <mat-icon>login</mat-icon>
+      Login
+    </button>
+  </ng-template>
 </mat-toolbar>
 <router-outlet>
-
 </router-outlet>
+<mat-menu #userMenu="matMenu">
+  <button mat-menu-item routerLink="home">
+   
+      <mat-icon>home</mat-icon>
+      Home
+   
+    
+  </button>
+  <button mat-menu-item (click)="logout()">
+    <mat-icon>logout</mat-icon>
+    Logout
+  </button>
+</mat-menu>

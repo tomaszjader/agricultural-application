@@ -1,1 +1,42 @@
-<p>sign-up works!</p>
+<div class="centrum">
+    <h1>
+        Sign Up a new User
+    </h1>
+    <form [formGroup]="signUpForm" (ngSubmit)="submit()" class="centrum1">
+        <mat-form-field>
+    
+            <input matInput placeholder="Name" formControlName="name" type="text">
+            <mat-error *ngIf="signUpForm.get('name')?.errors?.['required']">
+                Name is required
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+    
+            <input matInput placeholder="Email" formControlName="email" type="email">
+            <mat-error *ngIf="signUpForm.get('email')?.errors?.['required']">
+                Email is required
+            </mat-error>
+            <mat-error *ngIf="signUpForm.get('email')?.errors?.['email']">
+                Email is required
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Password" formControlName="password" type="password">
+            <mat-error *ngIf="signUpForm.get('password')?.errors?.['required']">
+                Password is required
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Confirm password" formControlName="confirmPassword" type="password">
+            <mat-error *ngIf="signUpForm.get('confirmPassword')?.errors?.['required']">
+                Confirm password is required
+            </mat-error>
+        </mat-form-field>
+        <mat-error *ngIf="signUpForm.get('confirmPassword')?.errors?.['passwordsDontMatch']">
+            Passwold should match
+        </mat-error>
+        <button mat-raised-button color="primary" (click)="signUp()">
+            Sign Up
+        </button>
+    </form>
+</div>

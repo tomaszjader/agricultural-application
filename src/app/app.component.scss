@@ -1,0 +1,15 @@
+mat-toolbar {
+    justify-content: space-between;
+}
+
+.centrum {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}

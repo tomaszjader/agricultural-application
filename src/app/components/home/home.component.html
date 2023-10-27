@@ -1,1 +1,5 @@
-<p>home works!</p>
+<div class="centrum">
+    <h1 *ngIf="user$ | async as user">Welcome to our app <span style="color: #3f51b5;">{{user.displayName}}</span></h1>
+    <app-weather-widget/>
+</div>
+
