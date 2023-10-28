@@ -23,6 +23,7 @@ import { WeatherWidgetComponent } from './components/weather-widget/weather-widg
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { EmployeesComponent } from './components/employees/employees.component';
 import {MatTableModule} from '@angular/material/table';
+import { NotificationsComponent } from './components/notifications/notifications.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import {MatTableModule} from '@angular/material/table';
     SignUpComponent,
     LandingComponent,
     WeatherWidgetComponent,
-    EmployeesComponent
+    EmployeesComponent,
+    NotificationsComponent
   ],
   imports: [
     BrowserAnimationsModule,

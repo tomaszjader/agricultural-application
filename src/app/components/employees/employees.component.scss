@@ -1,24 +1,25 @@
 .employeeForm {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
-.mat-table-centrum {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
 
-   
+.mat-table-centrum {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+
+}
+
+
+@media (max-width: 900px) {
+  .mat-table {
+
+    overflow-x: scroll;
+
+    width: 400px;
   }
-  
-  /* Style dla ekranów o szerokości mniejszej niż 600px (na przykład telefony komórkowe) */
-  @media (max-width: 900px) {
-    .mat-table {
-       
-        overflow-x: scroll;
-       
-        width: 400px;
-    }
-  }
+}
