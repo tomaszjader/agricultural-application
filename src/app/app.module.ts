@@ -24,6 +24,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { EmployeesComponent } from './components/employees/employees.component';
 import {MatTableModule} from '@angular/material/table';
 import { NotificationsComponent } from './components/notifications/notifications.component';
+import { WarehouseComponent } from './components/warehouse/warehouse.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import { NotificationsComponent } from './components/notifications/notifications
     LandingComponent,
     WeatherWidgetComponent,
     EmployeesComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    WarehouseComponent
   ],
   imports: [
     BrowserAnimationsModule,
