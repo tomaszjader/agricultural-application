@@ -20,6 +20,9 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import {MatMenuModule} from '@angular/material/menu';
 import { WeatherWidgetComponent } from './components/weather-widget/weather-widget.component';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { EmployeesComponent } from './components/employees/employees.component';
+import {MatTableModule} from '@angular/material/table';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +30,8 @@ import { WeatherWidgetComponent } from './components/weather-widget/weather-widg
     HomeComponent,
     SignUpComponent,
     LandingComponent,
-    WeatherWidgetComponent
+    WeatherWidgetComponent,
+    EmployeesComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -41,6 +45,7 @@ import { WeatherWidgetComponent } from './components/weather-widget/weather-widg
     MatButtonModule,
     MatToolbarModule,
     MatMenuModule,
+    MatTableModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
@@ -48,7 +53,8 @@ import { WeatherWidgetComponent } from './components/weather-widget/weather-widg
       registrationStrategy: 'registerWhenStable:30000'
     }),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth())
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore())
   ],
   providers: [],
   bootstrap: [AppComponent]

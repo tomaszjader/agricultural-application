@@ -8,6 +8,7 @@
 
         <span class="centrum">{{user.displayName}}</span>
         <span class="centrum"><mat-icon>expand_more</mat-icon></span>
+        <span class="centrum"></span>
       </span>
       
 
@@ -32,6 +33,14 @@
    
     
   </button>
+  <button mat-menu-item routerLink="/employees">
+   
+    <mat-icon>supervisor_account</mat-icon>
+    
+    Employees
+  
+</button>
+  
   <button mat-menu-item (click)="logout()">
     <mat-icon>logout</mat-icon>
     Logout

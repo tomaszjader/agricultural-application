@@ -5,6 +5,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { HomeComponent } from './components/home/home.component';
 import { canActivate, redirectUnauthorizedTo, redirectLoggedInTo } from '@angular/fire/auth-guard';
+import { EmployeesComponent } from './components/employees/employees.component';
 
 const redirectToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectToHome = () => redirectLoggedInTo(['home']);
@@ -28,6 +29,11 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+    ...canActivate(redirectToLogin)
+  },
+  {
+    path: 'employees',
+    component: EmployeesComponent,
     ...canActivate(redirectToLogin)
   }
 ];
