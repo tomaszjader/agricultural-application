@@ -8,6 +8,7 @@ import { canActivate, redirectUnauthorizedTo, redirectLoggedInTo } from '@angula
 import { EmployeesComponent } from './components/employees/employees.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { WarehouseComponent } from './components/warehouse/warehouse.component';
+import { FarmlandsComponent } from './components/farmlands/farmlands.component';
 
 const redirectToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectToHome = () => redirectLoggedInTo(['home']);
@@ -46,6 +47,11 @@ const routes: Routes = [
   {
     path: 'warehouse',
     component: WarehouseComponent,
+    ...canActivate(redirectToLogin)
+  },
+  {
+    path: 'farmlands',
+    component: FarmlandsComponent,
     ...canActivate(redirectToLogin)
   }
 ];

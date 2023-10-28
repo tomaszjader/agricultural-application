@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import {
   addDoc,
   Firestore,
@@ -14,17 +13,19 @@ import { map } from 'rxjs';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
-  selector: 'app-employees',
-  templateUrl: './employees.component.html',
-  styleUrls: ['./employees.component.scss']
+  selector: 'app-farmlands',
+  templateUrl: './farmlands.component.html',
+  styleUrls: ['./farmlands.component.scss']
 })
-export class EmployeesComponent {
+export class FarmlandsComponent {
   data: any;
-  displayedColumns: string[] = ['name', 'collected', 'note', 'edit', 'delete'];
-  employeeForm = new FormGroup({
-    collected: new FormControl('', [Validators.required]),
+  displayedColumns: string[] = ['name', 'size', 'note','costs', 'edit', 'delete'];
+  
+  farmlandForm = new FormGroup({
+    size: new FormControl('', [Validators.required]),
     name: new FormControl('', [Validators.required]),
     note: new FormControl('', [Validators.required]),
+    costs: new FormControl('', [Validators.required]),
   })
   curentId = '';
   editMode = false;
@@ -42,7 +43,7 @@ export class EmployeesComponent {
       });
   }
   async getData() {
-    const q = query(collection(this.firestore, "employees"), where("userID", "==", this.userID));
+    const q = query(collection(this.firestore, "farmlands"), where("userID", "==", this.userID));
 
     const querySnapshot = await getDocs(q);
     this.data = [...querySnapshot.docs.map((item) => {
@@ -51,11 +52,12 @@ export class EmployeesComponent {
   }
   submit() {
     console.log(this.data)
-    const usersCollection = collection(this.firestore, 'employees');
+    const usersCollection = collection(this.firestore, 'farmlands');
     const userData = {
-      collected: this.employeeForm.get("collected")?.value,
-      name: this.employeeForm.get("name")?.value,
-      note: this.employeeForm.get("note")?.value,
+      costs: this.farmlandForm.get("costs")?.value,
+      size: this.farmlandForm.get("size")?.value,
+      name: this.farmlandForm.get("name")?.value,
+      note: this.farmlandForm.get("note")?.value,
       userID: this.userID,
     };
     addDoc(usersCollection, userData)
@@ -70,7 +72,7 @@ export class EmployeesComponent {
   }
 
   delete(id: string) {
-    const dataToDelete = doc(this.firestore, 'employees', id);
+    const dataToDelete = doc(this.firestore, 'farmlands', id);
     deleteDoc(dataToDelete)
       .then(() => {
         alert('Data Deleted');
@@ -85,8 +87,9 @@ export class EmployeesComponent {
   edit(i: any) {
     console.log(i);
     this.editMode = true;
-    this.employeeForm.patchValue({
-      collected: i.collected,
+    this.farmlandForm.patchValue({
+      costs: i.costs,
+      size: i.size,
       name: i.name,
       note: i.note,
     });
@@ -95,11 +98,12 @@ export class EmployeesComponent {
   }
 
   editData() {
-    const dataToUpdate = doc(this.firestore, 'employees', this.curentId);
+    const dataToUpdate = doc(this.firestore, 'farmlands', this.curentId);
     updateDoc(dataToUpdate, {
-      collected: this.employeeForm.get("collected")?.value,
-      name: this.employeeForm.get("name")?.value,
-      note: this.employeeForm.get("note")?.value,
+      costs: this.farmlandForm.get("costs")?.value,
+      size: this.farmlandForm.get("size")?.value,
+      name: this.farmlandForm.get("name")?.value,
+      note: this.farmlandForm.get("note")?.value,
       userID: this.userID,
     })
       .then(() => {
@@ -114,13 +118,15 @@ export class EmployeesComponent {
   }
 
   resetForm(){
-    this.employeeForm.patchValue({
-      collected: '',
+    this.farmlandForm.patchValue({
+      costs:'',
+      size: '',
       name: '',
       note: '',
     });
-    this.employeeForm.get('collected')?.setErrors(null);
-    this.employeeForm.get('name')?.setErrors(null);
-    this.employeeForm.get('note')?.setErrors(null);
+    this.farmlandForm.get('costs')?.setErrors(null);
+    this.farmlandForm.get('size')?.setErrors(null);
+    this.farmlandForm.get('name')?.setErrors(null);
+    this.farmlandForm.get('note')?.setErrors(null);
   }
 }

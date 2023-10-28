@@ -25,6 +25,7 @@ import { EmployeesComponent } from './components/employees/employees.component';
 import {MatTableModule} from '@angular/material/table';
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { WarehouseComponent } from './components/warehouse/warehouse.component';
+import { FarmlandsComponent } from './components/farmlands/farmlands.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,8 @@ import { WarehouseComponent } from './components/warehouse/warehouse.component';
     WeatherWidgetComponent,
     EmployeesComponent,
     NotificationsComponent,
-    WarehouseComponent
+    WarehouseComponent,
+    FarmlandsComponent
   ],
   imports: [
     BrowserAnimationsModule,
