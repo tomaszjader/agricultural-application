@@ -26,6 +26,7 @@ import {MatTableModule} from '@angular/material/table';
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { WarehouseComponent } from './components/warehouse/warehouse.component';
 import { FarmlandsComponent } from './components/farmlands/farmlands.component';
+import { AnimalsComponent } from './components/animals/animals.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +38,8 @@ import { FarmlandsComponent } from './components/farmlands/farmlands.component';
     EmployeesComponent,
     NotificationsComponent,
     WarehouseComponent,
-    FarmlandsComponent
+    FarmlandsComponent,
+    AnimalsComponent
   ],
   imports: [
     BrowserAnimationsModule,

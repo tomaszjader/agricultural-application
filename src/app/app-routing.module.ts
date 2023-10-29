@@ -9,6 +9,7 @@ import { EmployeesComponent } from './components/employees/employees.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { WarehouseComponent } from './components/warehouse/warehouse.component';
 import { FarmlandsComponent } from './components/farmlands/farmlands.component';
+import { AnimalsComponent } from './components/animals/animals.component';
 
 const redirectToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectToHome = () => redirectLoggedInTo(['home']);
@@ -52,6 +53,11 @@ const routes: Routes = [
   {
     path: 'farmlands',
     component: FarmlandsComponent,
+    ...canActivate(redirectToLogin)
+  },
+  {
+    path: 'animals',
+    component: AnimalsComponent,
     ...canActivate(redirectToLogin)
   }
 ];

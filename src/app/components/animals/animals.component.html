@@ -1,12 +1,17 @@
-<form action="" [formGroup]="notificationForm" class="notificationForm">
-    <h1>Notifications</h1>
+
+<form action="" [formGroup]="animalForm" class="employeeForm">
+    <h1>Animals</h1>
     <mat-form-field>
-        <mat-label>Notification label</mat-label>
-        <input matInput type="text" formControlName="label">
+        <mat-label>Animal's name</mat-label>
+        <input matInput type="text" formControlName="name">
     </mat-form-field>
     <mat-form-field>
-        <mat-label>Reminder time</mat-label>
-        <input matInput type="datetime-local" formControlName="timeStamp">
+        <mat-label>Note</mat-label>
+        <input matInput type="text" formControlName="note">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>How much it weighs?</mat-label>
+        <input matInput type="number" formControlName="weighs">
     </mat-form-field>
     <button mat-raised-button color="primary" *ngIf="!editMode" (click)="submit()">
         Add
@@ -15,7 +20,6 @@
         Edit
     </button>
 </form>
-
 <div class="mat-table-centrum">
     <div class="mat-table">
 
@@ -32,18 +36,22 @@
         </ng-container> -->
     
             <!-- Name Column -->
-            <ng-container matColumnDef="label">
-                <th mat-header-cell *matHeaderCellDef> Label </th>
-                <td mat-cell *matCellDef="let element"> {{element.label}} </td>
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
             </ng-container>
     
             <!-- Weight Column -->
-            <ng-container matColumnDef="timeStamp">
-                <th mat-header-cell *matHeaderCellDef> Time reminds </th>
-                <td mat-cell *matCellDef="let element"> {{element.timeStamp}} </td>
+            <ng-container matColumnDef="weighs">
+                <th mat-header-cell *matHeaderCellDef> Weighs </th>
+                <td mat-cell *matCellDef="let element"> {{element.weighs}} </td>
             </ng-container>
     
-            
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="note">
+                <th mat-header-cell *matHeaderCellDef> Note </th>
+                <td mat-cell *matCellDef="let element"> {{element.note}} </td>
+            </ng-container>
             <ng-container matColumnDef="edit">
                 <th mat-header-cell *matHeaderCellDef> Edit </th>
                 <td mat-cell *matCellDef="let element"> <button mat-raised-button color="primary"
@@ -59,3 +67,4 @@
         </table>
     </div>
 </div>
+

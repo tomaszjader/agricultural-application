@@ -1,6 +1,7 @@
 <form action="" [formGroup]="warehouseForm" class="employeeForm">
+    <h1>Warehouse</h1>
     <mat-form-field>
-        <mat-label>Employee's name</mat-label>
+        <mat-label>Tool name</mat-label>
         <input matInput type="text" formControlName="name">
     </mat-form-field>
     <mat-form-field>
@@ -8,7 +9,7 @@
         <input matInput type="text" formControlName="note">
     </mat-form-field>
     <mat-form-field class="example-full-width">
-        <mat-label>How much did the worker collect?</mat-label>
+        <mat-label>Number of tools</mat-label>
         <input matInput type="number" formControlName="quantity">
     </mat-form-field>
     <button mat-raised-button color="primary" *ngIf="!editMode" (click)="submit()">
@@ -41,7 +42,7 @@
     
             <!-- Weight Column -->
             <ng-container matColumnDef="quantity">
-                <th mat-header-cell *matHeaderCellDef> Quantity </th>
+                <th mat-header-cell *matHeaderCellDef> Number </th>
                 <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
             </ng-container>
     
