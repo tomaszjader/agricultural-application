@@ -23,6 +23,7 @@ export class NotificationsComponent {
     label: new FormControl('', [Validators.required]),
     timeStamp: new FormControl('', [Validators.required]),
   });
+  isAdd = false;
   editMode = false;
   curentId = '';
   userID = '';
@@ -81,6 +82,7 @@ export class NotificationsComponent {
   }
 
   edit(i: any) {
+    this.isAdd = true;
     console.log(i);
     this.editMode = true;
     this.notificationForm.patchValue({
@@ -116,5 +118,14 @@ export class NotificationsComponent {
     });
     this.notificationForm.get('label')?.setErrors(null);
     this.notificationForm.get('timeStamp')?.setErrors(null);
+
+    this.notificationForm.get('label')?.clearValidators();
+    this.notificationForm.get('timeStamp')?.clearValidators();
+  }
+
+  isAdds(){
+    this.isAdd =!this.isAdd;
+    this.resetForm();
+    this.editMode = false;
   }
 }

@@ -20,7 +20,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 export class FarmlandsComponent {
   data: any;
   displayedColumns: string[] = ['name', 'size', 'note','costs', 'edit', 'delete'];
-  
+  isAdd = false;
   farmlandForm = new FormGroup({
     size: new FormControl('', [Validators.required]),
     name: new FormControl('', [Validators.required]),
@@ -85,6 +85,7 @@ export class FarmlandsComponent {
   }
 
   edit(i: any) {
+    this.isAdd = true;
     console.log(i);
     this.editMode = true;
     this.farmlandForm.patchValue({
@@ -128,5 +129,16 @@ export class FarmlandsComponent {
     this.farmlandForm.get('size')?.setErrors(null);
     this.farmlandForm.get('name')?.setErrors(null);
     this.farmlandForm.get('note')?.setErrors(null);
+
+    this.farmlandForm.get('costs')?.clearValidators();
+    this.farmlandForm.get('size')?.clearValidators();
+    this.farmlandForm.get('name')?.clearValidators();
+    this.farmlandForm.get('note')?.clearValidators();
+  }
+
+  isAdds(){
+    this.isAdd =!this.isAdd;
+    this.resetForm();
+    this.editMode = false;
   }
 }

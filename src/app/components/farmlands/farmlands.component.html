@@ -1,30 +1,38 @@
 
 <form action="" [formGroup]="farmlandForm" class="employeeForm">
     <h1>Farmland</h1>
-    <mat-form-field>
-        <mat-label>Name of the farmland</mat-label>
-        <input matInput type="text" formControlName="name">
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-        <mat-label>Size</mat-label>
-        <input matInput type="number" formControlName="size">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Note</mat-label>
-        <input matInput type="text" formControlName="note">
-    </mat-form-field>
-    
-    <mat-form-field class="example-full-width">
-        <mat-label>Costs</mat-label>
-        <input matInput type="number" formControlName="costs">
-    </mat-form-field>
-    
-    <button mat-raised-button color="primary" *ngIf="!editMode" (click)="submit()">
-        Add
+    <button mat-raised-button [color]="!isAdd ? 'primary' : '' " (click)="isAdds()" 
+    style="margin-bottom: 10px;"> 
+        <i *ngIf="isAdd"  class="material-icons">close</i>
+        <i *ngIf="!isAdd" class="material-icons">add</i>
     </button>
-    <button mat-raised-button color="primary" *ngIf="editMode" (click)="editData()">
-        Edit
-    </button>
+    <div *ngIf="isAdd" class="employeeForm">
+        <mat-form-field>
+            <mat-label>Name of the farmland</mat-label>
+            <input matInput type="text" formControlName="name">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Size</mat-label>
+            <input matInput type="number" formControlName="size">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Note</mat-label>
+            <input matInput type="text" formControlName="note">
+        </mat-form-field>
+        
+        <mat-form-field class="example-full-width">
+            <mat-label>Costs</mat-label>
+            <input matInput type="number" formControlName="costs">
+        </mat-form-field>
+        
+        <button mat-raised-button color="primary" *ngIf="!editMode" (click)="submit()">
+            Add
+        </button>
+        <button mat-raised-button color="primary" *ngIf="editMode" (click)="editData()">
+            Edit
+        </button>
+    </div>
+    
 </form>
 <div class="mat-table-centrum">
     <div class="mat-table">

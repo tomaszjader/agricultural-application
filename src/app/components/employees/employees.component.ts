@@ -20,6 +20,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 })
 export class EmployeesComponent {
   data: any;
+  isAdd = false;
   displayedColumns: string[] = ['name', 'collected', 'note', 'edit', 'delete'];
   employeeForm = new FormGroup({
     collected: new FormControl('', [Validators.required]),
@@ -83,6 +84,7 @@ export class EmployeesComponent {
   }
 
   edit(i: any) {
+    this.isAdd = true;
     console.log(i);
     this.editMode = true;
     this.employeeForm.patchValue({
@@ -122,5 +124,16 @@ export class EmployeesComponent {
     this.employeeForm.get('collected')?.setErrors(null);
     this.employeeForm.get('name')?.setErrors(null);
     this.employeeForm.get('note')?.setErrors(null);
+
+    this.employeeForm.get('collected')?.clearValidators();
+    this.employeeForm.get('name')?.clearValidators();
+    this.employeeForm.get('note')?.clearValidators();
+    
+
+  }
+  isAdds(){
+    this.isAdd =!this.isAdd;
+    this.resetForm();
+    this.editMode = false;
   }
 }

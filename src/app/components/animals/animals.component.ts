@@ -18,6 +18,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
   styleUrls: ['./animals.component.scss']
 })
 export class AnimalsComponent {
+  isAdd = false;
   data: any;
   displayedColumns: string[] = ['name', 'weighs', 'note', 'edit', 'delete'];
   animalForm = new FormGroup({
@@ -82,6 +83,7 @@ export class AnimalsComponent {
   }
 
   edit(i: any) {
+    this.isAdd = true;
     console.log(i);
     this.editMode = true;
     this.animalForm.patchValue({
@@ -121,5 +123,15 @@ export class AnimalsComponent {
     this.animalForm.get('weighs')?.setErrors(null);
     this.animalForm.get('name')?.setErrors(null);
     this.animalForm.get('note')?.setErrors(null);
+
+    this.animalForm.get('weighs')?.clearValidators();
+    this.animalForm.get('name')?.clearValidators();
+    this.animalForm.get('note')?.clearValidators();
+  }
+
+  isAdds(){
+    this.isAdd =!this.isAdd;
+    this.resetForm();
+    this.editMode = false;
   }
 }

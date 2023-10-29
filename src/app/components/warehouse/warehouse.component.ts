@@ -19,6 +19,7 @@ import {
 })
 export class WarehouseComponent {
   data: any;
+  isAdd = false;
   displayedColumns: string[] = ['name', 'quantity', 'note', 'edit', 'delete'];
   warehouseForm = new FormGroup({
     quantity: new FormControl('', [Validators.required]),
@@ -82,6 +83,7 @@ export class WarehouseComponent {
   }
 
   edit(i: any) {
+    this.isAdd = true;
     console.log(i);
     this.editMode = true;
     this.warehouseForm.patchValue({
@@ -121,5 +123,15 @@ export class WarehouseComponent {
     this.warehouseForm.get('quantity')?.setErrors(null);
     this.warehouseForm.get('name')?.setErrors(null);
     this.warehouseForm.get('note')?.setErrors(null);
+
+    this.warehouseForm.get('quantity')?.clearValidators();
+    this.warehouseForm.get('name')?.clearValidators();
+    this.warehouseForm.get('note')?.clearValidators();
+  }
+
+  isAdds(){
+    this.isAdd =!this.isAdd;
+    this.resetForm()
+    this.editMode = false;
   }
 }
