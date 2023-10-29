@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-  <span>My Application</span>
+  <span ><mat-icon >agriculture</mat-icon></span>
   <ng-container *ngIf="authService.curentUser$ | async as user; else loginButton">
 
     <button mat-button [mat-menu-trigger-for]="userMenu">
