@@ -4,7 +4,7 @@
         <i *ngIf="isAdd" class="material-icons">close</i>
         <i *ngIf="!isAdd" class="material-icons">add</i>
     </button>
-    <div *ngIf="isAdd" class="employeeForm">
+    <div *ngIf="isAdd" class="notificationForm">
         <mat-form-field>
             <mat-label>Notification label</mat-label>
             <input matInput type="text" formControlName="label">
@@ -14,10 +14,10 @@
             <input matInput type="datetime-local" formControlName="timeStamp">
         </mat-form-field>
         <button mat-raised-button color="primary" *ngIf="!editMode" (click)="submit()">
-            Add
+            <mat-icon>add</mat-icon>Add
         </button>
         <button mat-raised-button color="primary" *ngIf="editMode" (click)="editData()">
-            Edit
+            <mat-icon>edit</mat-icon> Edit
         </button>
     </div>
 </form>
@@ -53,12 +53,12 @@
             <ng-container matColumnDef="edit">
                 <th mat-header-cell *matHeaderCellDef> Edit </th>
                 <td mat-cell *matCellDef="let element"> <button mat-raised-button color="primary"
-                        (click)="edit(element)">Edit</button> </td>
+                        (click)="edit(element)"><mat-icon>edit</mat-icon>Edit</button> </td>
             </ng-container>
             <ng-container matColumnDef="delete">
                 <th mat-header-cell *matHeaderCellDef> Delete </th>
                 <td mat-cell *matCellDef="let element"><button mat-raised-button
-                        (click)="delete(element.id)">Delete</button> </td>
+                        (click)="delete(element.id)"><mat-icon>delete</mat-icon>Delete</button> </td>
             </ng-container>
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
