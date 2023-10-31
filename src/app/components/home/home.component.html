@@ -1,42 +1,26 @@
 <div class="centrum">
-    <h1 *ngIf="user$ | async as user">Welcome to our app <span style="color: #3f51b5;">{{user.displayName}}</span></h1>
+    <h1 *ngIf="user$ | async as user">Welcome to app <span style="color: #3f51b5;">{{user.displayName}}</span></h1>
     <app-weather-widget />
     <div class="buttons">
         <button mat-raised-button routerLink="/employees">
-
             <mat-icon>supervisor_account</mat-icon>
-
             Employees
-
         </button>
         <button mat-raised-button routerLink="/notifications">
-
             <mat-icon>notifications</mat-icon>
-
             Notifications
-
         </button>
         <button mat-raised-button routerLink="/warehouse">
-
             <mat-icon>warehouse</mat-icon>
-
             Warehouse
-
         </button>
         <button mat-raised-button routerLink="/farmlands">
-
             <mat-icon>waves</mat-icon>
-
             Farmlands
-
         </button>
         <button mat-raised-button routerLink="/animals">
-
             <mat-icon>goat</mat-icon>
-
             Animals
-
         </button>
     </div>
-
 </div>
