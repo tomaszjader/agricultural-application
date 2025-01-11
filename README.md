@@ -1,5 +1,3 @@
 # Agricultural Application
 
-Aplikacja internetowa do zarządzania gospodarstwem rolnym, stworzona w ramach pracy licencjackiej, oparta na Angularze i Firebase. Projekt wykorzystuje zasady Material Design, stylizowany za pomocą SCSS i napisany w TypeScript, co zapewnia solidność i łatwość utrzymania kodu. Aplikacja jest hostowana na GitHub Pages, co ułatwia dostęp i wdrażanie.
-
-
+A web application for farm management, created as part of a bachelor's thesis, built using Angular and Firebase. The project follows Material Design principles, styled with SCSS, and written in TypeScript, ensuring code robustness and maintainability. The application is hosted on GitHub Pages, making it easily accessible and deployable.
