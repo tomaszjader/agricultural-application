@@ -1,42 +1,42 @@
 <div class="centrum">
-    <h1>
-        Sign Up a new User
+    <h1 style="text-align: center;">
+        Zarejestruj nowego użytkownika
     </h1>
     <form [formGroup]="signUpForm" (ngSubmit)="submit()" class="centrum1">
         <mat-form-field>
     
             <input matInput placeholder="Name" formControlName="name" type="text">
             <mat-error *ngIf="signUpForm.get('name')?.errors?.['required']">
-                Name is required
+                Nazwa jest wymagana
             </mat-error>
         </mat-form-field>
         <mat-form-field>
     
             <input matInput placeholder="Email" formControlName="email" type="email">
             <mat-error *ngIf="signUpForm.get('email')?.errors?.['required']">
-                Email is required
+                Email jest wymagany
             </mat-error>
             <mat-error *ngIf="signUpForm.get('email')?.errors?.['email']">
-                Email is required
+                Email jest wymagany
             </mat-error>
         </mat-form-field>
         <mat-form-field>
             <input matInput placeholder="Password" formControlName="password" type="password">
             <mat-error *ngIf="signUpForm.get('password')?.errors?.['required']">
-                Password is required
+                Hasło jest wymagane
             </mat-error>
         </mat-form-field>
         <mat-form-field>
             <input matInput placeholder="Confirm password" formControlName="confirmPassword" type="password">
             <mat-error *ngIf="signUpForm.get('confirmPassword')?.errors?.['required']">
-                Confirm password is required
+                Powturzone hasło jest wymagane
             </mat-error>
         </mat-form-field>
         <mat-error *ngIf="signUpForm.get('confirmPassword')?.errors?.['passwordsDontMatch']">
-            Passwold should match
+            Hasła powiny być identyczne
         </mat-error>
         <button mat-raised-button color="primary" (click)="signUp()">
-            Sign Up
+            Zarejestruj się
         </button>
     </form>
 </div>
