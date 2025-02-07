@@ -11,3 +11,44 @@
     flex-direction: column;
     width: 300px; 
 }
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    
+    h1 {
+        margin-bottom: 2rem;
+    }
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+    gap: 1rem;
+
+    mat-form-field {
+        width: 100%;
+    }
+
+    button {
+        margin: 1rem 0;
+    }
+}
+
+.signup-link {
+    text-align: center;
+    margin-top: 1rem;
+    
+    a {
+        color: primary;
+        text-decoration: none;
+        
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
