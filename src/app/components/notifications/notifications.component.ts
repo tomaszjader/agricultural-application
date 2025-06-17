@@ -44,9 +44,12 @@ export class NotificationsComponent {
     const q = query(collection(this.firestore, "notifications"), where("userID", "==", this.userID));
 
     const querySnapshot = await getDocs(q);
-    this.data = [...querySnapshot.docs.map((item) => {
-      return { ...item.data(), id: item.id }
-    })]
+    this.data = querySnapshot.docs.map((item) => {
+      const data = item.data();
+      
+      const { timeStamp, ...rest } = data;
+      return { ...rest, timeStamp: timeStamp.replace(/(\d{4})-(\d{2})-(\d{2})T(\d{2}:\d{2})/, "$4 $3.$2.$1"), id: item.id };
+    });
   }
 
   submit() {
