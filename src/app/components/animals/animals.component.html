@@ -1,8 +1,7 @@
 
 <form action="" [formGroup]="animalForm" class="employeeForm">
     <h1>Zwierzęta</h1>
-    <button mat-raised-button [color]="!isAdd ? 'primary' : '' " (click)="isAdds()" 
-    style="margin-bottom: 10px;"> 
+    <button class="animalButton" mat-raised-button [color]="!isAdd ? 'primary' : '' " (click)="isAdds()" > 
         <i *ngIf="isAdd"  class="material-icons">close</i>
         <i *ngIf="!isAdd" class="material-icons">add</i>
     </button>

@@ -1,6 +1,6 @@
 <form action="" [formGroup]="warehouseForm" class="warehouse-form">
     <h1 class="warehouse-title">Magazyn</h1>
-    <button mat-raised-button [color]="!isAdd ? 'primary' : ''" (click)="isAdds()" class="add-button">
+    <button class="warehouseButton" mat-raised-button [color]="!isAdd ? 'primary' : ''" (click)="isAdds()" class="add-button">
         <i *ngIf="isAdd" class="material-icons">close</i>
         <i *ngIf="!isAdd" class="material-icons">add</i>
     </button>
