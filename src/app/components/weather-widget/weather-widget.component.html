@@ -1,16 +1,19 @@
 <div id="divWeatherMain"> 
-    <div *ngIf="WeatherData.isDay" >
-        <mat-icon >wb_sunny</mat-icon>  
+    <div *ngIf="WeatherData.isDay">
+      <mat-icon>wb_sunny</mat-icon>  
     </div>   
-    <div *ngIf="!WeatherData.isDay" c>
-        <mat-icon class=" moon">dark_mode</mat-icon>  
+    <div *ngIf="!WeatherData.isDay">
+      <mat-icon class="moon">dark_mode</mat-icon>  
     </div>   
+  
     <div class="weatherWidgetRow cloudDiv">
-        <i class="fas fa-cloud fa-3x cloud"></i>
+      <i class="fas fa-cloud fa-3x cloud"></i>
     </div>
-    <div  style="font-size: 32px;margin-top: 5px;">{{WeatherData.temp_celcius}}°C</div>
-    <div  style="font-size: 12px;">{{WeatherData.temp_min}}°C / {{WeatherData.temp_max}}°C</div>
-    <div  style="font-size: 12px;">Feels Like: {{WeatherData.temp_feels_like}}°C</div>
-    <div  style="font-size: 25px;margin-top: 10px;">{{WeatherData.name}}</div>
-    <div  style="font-size: 12px;">Humidity: {{WeatherData.main.humidity}}%</div>
-</div>
+  
+    <div class="temperature">{{ WeatherData.temp_celcius }}°C</div>
+    <div class="minmax">{{ WeatherData.temp_min }}°C / {{ WeatherData.temp_max }}°C</div>
+    <div class="feelslike">Feels Like: {{ WeatherData.temp_feels_like }}°C</div>
+    <div class="city">{{ WeatherData.name }}</div>
+    <div class="humidity">Humidity: {{ WeatherData.main.humidity }}%</div>
+  </div>
+  
