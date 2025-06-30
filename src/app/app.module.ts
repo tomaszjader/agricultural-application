@@ -27,6 +27,8 @@ import { NotificationsComponent } from './components/notifications/notifications
 import { WarehouseComponent } from './components/warehouse/warehouse.component';
 import { FarmlandsComponent } from './components/farmlands/farmlands.component';
 import { AnimalsComponent } from './components/animals/animals.component';
+import { DialogComponent } from './components/dialog/dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +41,8 @@ import { AnimalsComponent } from './components/animals/animals.component';
     NotificationsComponent,
     WarehouseComponent,
     FarmlandsComponent,
-    AnimalsComponent
+    AnimalsComponent,
+    DialogComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -54,10 +57,9 @@ import { AnimalsComponent } from './components/animals/animals.component';
     MatToolbarModule,
     MatMenuModule,
     MatTableModule,
+    MatDialogModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
-      // Register the ServiceWorker as soon as the application is stable
-      // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
