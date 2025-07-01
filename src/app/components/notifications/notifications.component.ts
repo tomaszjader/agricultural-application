@@ -11,7 +11,7 @@ import {
 } from '@angular/fire/firestore'
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { map } from 'rxjs';
-
+import { DialogService } from 'src/app/services/dialog.service';
 @Component({
   selector: 'app-notifications',
   templateUrl: './notifications.component.html',
@@ -29,7 +29,8 @@ export class NotificationsComponent {
   userID = '';
   data:any;
   constructor(public authService: AuthenticationService,
-    public firestore: Firestore,) {
+    public firestore: Firestore,
+    private dialogService: DialogService) {
     this.authService.curentUser$
       .pipe(
         map((data: any) => data.uid)
@@ -62,12 +63,16 @@ export class NotificationsComponent {
     };
     addDoc(usersCollection, userData)
       .then(() => {
-        alert('Data Sent')
+        this.dialogService.showInfo('Informacja', 'Wysłano dane').subscribe(result => {
+      console.log('Dialog zamknięty:', result);
+    });
         this.getData();
         this.resetForm()
       })
       .catch((err) => {
-        alert(err.message);
+        this.dialogService.showInfo('Informacja',err.message).subscribe(result => {
+      console.log(':', result);
+    });
       })
   }
 
@@ -75,13 +80,16 @@ export class NotificationsComponent {
     const dataToDelete = doc(this.firestore, 'notifications', id);
     deleteDoc(dataToDelete)
       .then(() => {
-        alert('Data Deleted');
+        this.dialogService.showInfo('Informacja', 'Dane usunięte').subscribe(result => {
+      console.log(':', result);
+    });
         this.getData()
       })
       .catch((err) => {
-        alert(err.message)
+        this.dialogService.showInfo('Informacja',err.message).subscribe(result => {
+      console.log(':', result);
+    });
       })
-
   }
 
   edit(i: any) {
@@ -104,13 +112,17 @@ export class NotificationsComponent {
       userID: this.userID,
     })
       .then(() => {
-        alert('Data updated');
+        this.dialogService.showInfo('Informacja', "Dane zaktualizowane").subscribe(result => {
+      console.log(':', result);
+    });
         this.editMode = false;
         this.getData();
         this.resetForm()
       })
       .catch((err) => {
-        alert(err.message)
+        this.dialogService.showInfo('Informacja',err.message).subscribe(result => {
+      console.log(':', result);
+    });
       })
   }
 
