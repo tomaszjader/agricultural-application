@@ -77,8 +77,10 @@ export class NotificationsComponent {
   }
 
   delete(id: string) {
-    const dataToDelete = doc(this.firestore, 'notifications', id);
-    deleteDoc(dataToDelete)
+    this.dialogService.showConfirm('Informacja', 'Dane usunięte').subscribe(result => {
+      const dataToDelete = doc(this.firestore, 'notifications', id);
+      if(result){
+        deleteDoc(dataToDelete)
       .then(() => {
         this.dialogService.showInfo('Informacja', 'Dane usunięte').subscribe(result => {
       console.log(':', result);
@@ -89,7 +91,11 @@ export class NotificationsComponent {
         this.dialogService.showInfo('Informacja',err.message).subscribe(result => {
       console.log(':', result);
     });
-      })
+      }
+    )}
+    });
+    
+
   }
 
   edit(i: any) {

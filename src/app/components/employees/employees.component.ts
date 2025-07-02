@@ -76,8 +76,10 @@ export class EmployeesComponent {
   }
 
   delete(id: string) {
-    const dataToDelete = doc(this.firestore, 'employees', id);
-    deleteDoc(dataToDelete)
+    this.dialogService.showConfirm('Informacja', 'Dane usunięte').subscribe(result => {
+      const dataToDelete = doc(this.firestore, 'employees', id);
+      if(result){
+        deleteDoc(dataToDelete)
       .then(() => {
         this.dialogService.showInfo('Informacja', 'Dane usunięte').subscribe(result => {
       console.log(':', result);
@@ -88,7 +90,11 @@ export class EmployeesComponent {
         this.dialogService.showInfo('Informacja',err.message).subscribe(result => {
       console.log(':', result);
       });
-      })
+      }
+    )}
+    });
+    
+
   }
 
   edit(i: any) {

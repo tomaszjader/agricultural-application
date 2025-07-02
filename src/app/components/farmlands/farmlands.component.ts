@@ -77,8 +77,10 @@ export class FarmlandsComponent {
   }
 
   delete(id: string) {
-    const dataToDelete = doc(this.firestore, 'farmlands', id);
-    deleteDoc(dataToDelete)
+    this.dialogService.showConfirm('Informacja', 'Dane usunięte').subscribe(result => {
+      const dataToDelete = doc(this.firestore, 'farmlands', id);
+      if(result){
+        deleteDoc(dataToDelete)
       .then(() => {
         this.dialogService.showInfo('Informacja', 'Dane usunięte').subscribe(result => {
       console.log(':', result);
@@ -89,7 +91,11 @@ export class FarmlandsComponent {
         this.dialogService.showInfo('Informacja',err.message).subscribe(result => {
       console.log(':', result);
       });
-      })
+      }
+    )}
+    });
+    
+
   }
 
   edit(i: any) {
