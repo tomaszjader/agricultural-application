@@ -54,7 +54,6 @@ export class NotificationsComponent {
   }
 
   submit() {
-    console.log(this.data)
     const usersCollection = collection(this.firestore, 'notifications');
     const userData = {
       label: this.notificationForm.get("label")?.value,
@@ -64,14 +63,12 @@ export class NotificationsComponent {
     addDoc(usersCollection, userData)
       .then(() => {
         this.dialogService.showInfo('Informacja', 'Wysłano dane').subscribe(result => {
-      console.log('Dialog zamknięty:', result);
     });
         this.getData();
         this.resetForm()
       })
       .catch((err) => {
         this.dialogService.showInfo('Informacja',err.message).subscribe(result => {
-      console.log(':', result);
     });
       })
   }
@@ -83,13 +80,12 @@ export class NotificationsComponent {
         deleteDoc(dataToDelete)
       .then(() => {
         this.dialogService.showInfo('Informacja', 'Dane usunięte').subscribe(result => {
-      console.log(':', result);
     });
         this.getData()
       })
       .catch((err) => {
         this.dialogService.showInfo('Informacja',err.message).subscribe(result => {
-      console.log(':', result);
+
     });
       }
     )}
@@ -100,7 +96,6 @@ export class NotificationsComponent {
 
   edit(i: any) {
     this.isAdd = true;
-    console.log(i);
     this.editMode = true;
     this.notificationForm.patchValue({
       label: i.label,
@@ -119,7 +114,6 @@ export class NotificationsComponent {
     })
       .then(() => {
         this.dialogService.showInfo('Informacja', "Dane zaktualizowane").subscribe(result => {
-      console.log(':', result);
     });
         this.editMode = false;
         this.getData();
@@ -127,7 +121,6 @@ export class NotificationsComponent {
       })
       .catch((err) => {
         this.dialogService.showInfo('Informacja',err.message).subscribe(result => {
-      console.log(':', result);
     });
       })
   }

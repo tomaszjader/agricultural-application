@@ -52,7 +52,7 @@ export class FarmlandsComponent {
     })]
   }
   submit() {
-    console.log(this.data)
+    
     const usersCollection = collection(this.firestore, 'farmlands');
     const userData = {
       costs: this.farmlandForm.get("costs")?.value,
@@ -64,14 +64,14 @@ export class FarmlandsComponent {
     addDoc(usersCollection, userData)
       .then(() => {
         this.dialogService.showInfo('Informacja', 'Wysąłno dane').subscribe(result => {
-      console.log('Dialog zamknięty:', result);
+      
     });
         this.getData();
         this.resetForm()
       })
       .catch((err) => {
         this.dialogService.showInfo('Informacja',err.message).subscribe(result => {
-      console.log(':', result);
+      
       });
       })
   }
@@ -83,13 +83,13 @@ export class FarmlandsComponent {
         deleteDoc(dataToDelete)
       .then(() => {
         this.dialogService.showInfo('Informacja', 'Dane usunięte').subscribe(result => {
-      console.log(':', result);
+      
     });
         this.getData()
       })
       .catch((err) => {
         this.dialogService.showInfo('Informacja',err.message).subscribe(result => {
-      console.log(':', result);
+      
       });
       }
     )}
@@ -100,7 +100,7 @@ export class FarmlandsComponent {
 
   edit(i: any) {
     this.isAdd = true;
-    console.log(i);
+    
     this.editMode = true;
     this.farmlandForm.patchValue({
       costs: i.costs,
@@ -123,7 +123,7 @@ export class FarmlandsComponent {
     })
       .then(() => {
         this.dialogService.showInfo('Informacja',"Dane zaktualizowane").subscribe(result => {
-      console.log(':', result);
+      
     });
         this.editMode = false;
         this.getData();
@@ -131,7 +131,7 @@ export class FarmlandsComponent {
       })
       .catch((err) => {
         this.dialogService.showInfo('Informacja',err.message).subscribe(result => {
-      console.log(':', result);
+      
       });
       })
   }

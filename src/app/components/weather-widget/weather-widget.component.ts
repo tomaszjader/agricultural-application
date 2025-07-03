@@ -15,7 +15,6 @@ export class WeatherWidgetComponent {
       isDay: true
     };
     this.getWeatherData();
-    console.log(this.WeatherData);
   }
 
   getWeatherData(){

@@ -51,7 +51,6 @@ export class WarehouseComponent {
     })]
   }
   submit() {
-    console.log(this.data)
     const usersCollection = collection(this.firestore, 'warehouse');
     const userData = {
       quantity: this.warehouseForm.get("quantity")?.value,
@@ -62,14 +61,12 @@ export class WarehouseComponent {
     addDoc(usersCollection, userData)
       .then(() => {
         this.dialogService.showInfo('Informacja', 'Wysałno dane').subscribe(result => {
-      console.log('Dialog zamknięty:', result);
     });
         this.getData();
         this.resetForm()
       })
       .catch((err) => {
         this.dialogService.showInfo('Informacja',err.message).subscribe(result => {
-      console.log(':', result);
     });
       })
   }
@@ -81,13 +78,13 @@ export class WarehouseComponent {
         deleteDoc(dataToDelete)
       .then(() => {
         this.dialogService.showInfo('Informacja', 'Dane usunięte').subscribe(result => {
-      console.log(':', result);
+
     });
         this.getData()
       })
       .catch((err) => {
         this.dialogService.showInfo('Informacja',err.message).subscribe(result => {
-      console.log(':', result);
+
     });
       }
     )}
@@ -98,7 +95,7 @@ export class WarehouseComponent {
 
   edit(i: any) {
     this.isAdd = true;
-    console.log(i);
+
     this.editMode = true;
     this.warehouseForm.patchValue({
       quantity: i.quantity,
@@ -119,7 +116,7 @@ export class WarehouseComponent {
     })
       .then(() => {
         this.dialogService.showInfo('Informacja', "Dane zaktualizowane").subscribe(result => {
-      console.log(':', result);
+
     });
         this.editMode = false;
         this.getData();
@@ -127,7 +124,6 @@ export class WarehouseComponent {
       })
       .catch((err) => {
         this.dialogService.showInfo('Informacja',err.message).subscribe(result => {
-      console.log(':', result);
     });
       })
   }

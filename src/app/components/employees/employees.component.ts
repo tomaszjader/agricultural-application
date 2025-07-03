@@ -52,7 +52,7 @@ export class EmployeesComponent {
     })]
   }
   submit() {
-    console.log(this.data)
+    
     const usersCollection = collection(this.firestore, 'employees');
     const userData = {
       collected: this.employeeForm.get("collected")?.value,
@@ -63,14 +63,14 @@ export class EmployeesComponent {
     addDoc(usersCollection, userData)
       .then(() => {
          this.dialogService.showInfo('Informacja', 'Wysąłno dane').subscribe(result => {
-      console.log('Dialog zamknięty:', result);
+      
     });
         this.getData();
         this.resetForm()
       })
       .catch((err) => {
         this.dialogService.showInfo('Informacja',err.message).subscribe(result => {
-      console.log(':', result);
+      
       });
       })
   }
@@ -82,13 +82,13 @@ export class EmployeesComponent {
         deleteDoc(dataToDelete)
       .then(() => {
         this.dialogService.showInfo('Informacja', 'Dane usunięte').subscribe(result => {
-      console.log(':', result);
+      
     });
         this.getData()
       })
       .catch((err) => {
         this.dialogService.showInfo('Informacja',err.message).subscribe(result => {
-      console.log(':', result);
+      
       });
       }
     )}
@@ -99,7 +99,7 @@ export class EmployeesComponent {
 
   edit(i: any) {
     this.isAdd = true;
-    console.log(i);
+    
     this.editMode = true;
     this.employeeForm.patchValue({
       collected: i.collected,
@@ -120,7 +120,7 @@ export class EmployeesComponent {
     })
       .then(() => {
         this.dialogService.showInfo('Informacja',"Dane zaktualizowane").subscribe(result => {
-      console.log(':', result);
+      
       });
         this.editMode = false;
         this.getData();
@@ -128,7 +128,7 @@ export class EmployeesComponent {
       })
       .catch((err) => {
         this.dialogService.showInfo('Informacja',err.message).subscribe(result => {
-      console.log(':', result);
+      
       });
       })
   }

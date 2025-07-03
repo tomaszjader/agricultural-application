@@ -24,10 +24,6 @@ export class LoginComponent {
     return this.loginForm.get('password')?.value;
   }
 
-  login() {
-    console.log(this.loginForm.value);
-  }
-
   submit() {
     if (!this.loginForm.valid) {
       return;

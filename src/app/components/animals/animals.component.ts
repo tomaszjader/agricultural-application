@@ -51,7 +51,6 @@ export class AnimalsComponent {
     })]
   }
   submit() {
-    console.log(this.data)
     const usersCollection = collection(this.firestore, 'animals');
     const userData = {
       weighs: this.animalForm.get("weighs")?.value,
@@ -62,7 +61,7 @@ export class AnimalsComponent {
     addDoc(usersCollection, userData)
       .then(() => {
          this.dialogService.showInfo('Informacja', 'Wysąłno dane').subscribe(result => {
-      console.log('Dialog zamknięty:', result);
+      
     });
         this.getData();
         this.resetForm()
@@ -70,7 +69,7 @@ export class AnimalsComponent {
       .catch((err) => {
 
         this.dialogService.showInfo('Informacja',err.message).subscribe(result => {
-      console.log(':', result);
+      
       });
       })
   }
@@ -87,7 +86,7 @@ export class AnimalsComponent {
       .catch((err) => {
 
         this.dialogService.showInfo('Informacja',err.message).subscribe(result => {
-      console.log(':', result);
+      
       });
       }
     )}
@@ -98,7 +97,7 @@ export class AnimalsComponent {
 
   edit(i: any) {
     this.isAdd = true;
-    console.log(i);
+    
     this.editMode = true;
     this.animalForm.patchValue({
       weighs: i.weighs,
@@ -119,7 +118,7 @@ export class AnimalsComponent {
     })
       .then(() => {
         this.dialogService.showInfo('Informacja',"Dane zaktualizowane").subscribe(result => {
-      console.log(':', result);
+      
       });
         this.editMode = false;
         this.getData();
@@ -128,7 +127,7 @@ export class AnimalsComponent {
       .catch((err) => {
 
         this.dialogService.showInfo('Informacja',err.message).subscribe(result => {
-      console.log(':', result);
+      
       });
       })
   }
