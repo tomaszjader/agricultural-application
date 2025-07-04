@@ -1,11 +1,11 @@
 
-<form action="" [formGroup]="farmlandForm" class="employeeForm">
+<form action="" [formGroup]="farmlandForm" class="farmlandForm">
     <h1>Pola</h1>
     <button class="farmlandButton" mat-raised-button [color]="!isAdd ? 'primary' : '' " (click)="isAdds()" > 
         <i *ngIf="isAdd"  class="material-icons">close</i>
         <i *ngIf="!isAdd" class="material-icons">add</i>
     </button>
-    <div *ngIf="isAdd" class="employeeForm">
+    <div *ngIf="isAdd" class="farmlandForm">
         <mat-form-field>
             <mat-label>Nazwa pola</mat-label>
             <input matInput type="text" formControlName="name">

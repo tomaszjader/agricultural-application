@@ -1,28 +1,29 @@
-.animalButton{
-    margin-bottom: 10px;
+.animalButton {
+  margin-bottom: 10px;
 }
-.employeeForm {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+
+.animalForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.mat-table-centrum {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+
+}
+
+
+@media (max-width: 900px) {
+  .mat-table {
+
+    overflow-x: scroll;
+
+    width: 400px;
   }
-  
-  .mat-table-centrum {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
-  
-  
-  }
-  
-  
-  @media (max-width: 900px) {
-    .mat-table {
-  
-      overflow-x: scroll;
-  
-      width: 400px;
-    }
-  }
+}
