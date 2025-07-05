@@ -9,8 +9,6 @@ import { map } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  public data: any = []
-  
   
   constructor(public authService: AuthenticationService,
     
