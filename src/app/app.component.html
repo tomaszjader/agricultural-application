@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-  <span class="centrum"><mat-icon >agriculture</mat-icon></span>
+  <span class="centrum"><mat-icon>agriculture</mat-icon></span>
   <ng-container *ngIf="authService.curentUser$ | async as user; else loginButton">
 
     <button mat-button [mat-menu-trigger-for]="userMenu">
@@ -68,11 +68,11 @@
     Zwierzęta
 
   </button>
-  
+
   <button mat-menu-item (click)="logout()">
     <mat-icon>logout</mat-icon>
     Wyloguj
   </button>
-  
-  
+
+
 </mat-menu>

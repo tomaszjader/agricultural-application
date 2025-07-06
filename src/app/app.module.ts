@@ -29,6 +29,7 @@ import { FarmlandsComponent } from './components/farmlands/farmlands.component';
 import { AnimalsComponent } from './components/animals/animals.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+
 @NgModule({
   declarations: [
     AppComponent,
