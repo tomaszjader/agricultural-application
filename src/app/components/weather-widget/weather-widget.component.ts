@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class WeatherWidgetComponent {
   WeatherData:any;
+  appKeY = '4236a4e53c3f590a1468697fa05f828c';
+  city = 'Warszawa';
   constructor() { }
 
   ngOnInit() {
@@ -18,7 +20,7 @@ export class WeatherWidgetComponent {
   }
 
   getWeatherData(){
-    fetch('https://api.openweathermap.org/data/2.5/weather?q=warszawa&appid=4236a4e53c3f590a1468697fa05f828c')
+    fetch('https://api.openweathermap.org/data/2.5/weather?q='+this.city+'&appid='+this.appKeY)
     .then(response=>response.json())
     .then(data=>{this.setWeatherData(data);})
 
