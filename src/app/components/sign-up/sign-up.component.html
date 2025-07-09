@@ -4,14 +4,12 @@
     </h1>
     <form [formGroup]="signUpForm" (ngSubmit)="submit()" class="centrum1">
         <mat-form-field>
-    
             <input matInput placeholder="Name" formControlName="name" type="text">
             <mat-error *ngIf="signUpForm.get('name')?.errors?.['required']">
                 Nazwa jest wymagana
             </mat-error>
         </mat-form-field>
         <mat-form-field>
-    
             <input matInput placeholder="Email" formControlName="email" type="email">
             <mat-error *ngIf="signUpForm.get('email')?.errors?.['required']">
                 Email jest wymagany

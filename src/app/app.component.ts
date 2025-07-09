@@ -16,6 +16,5 @@ export class AppComponent {
     this.authService.logout().subscribe(() => {
       this.router.navigate([''])
     })
-  }
-  
+  } 
 }

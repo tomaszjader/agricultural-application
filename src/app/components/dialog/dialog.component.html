@@ -3,11 +3,9 @@
         <mat-icon>{{ getIcon() }}</mat-icon>
         <h2 mat-dialog-title>{{ data.title }}</h2>
     </div>
-
     <mat-dialog-content class="dialog-content">
         <p>{{ data.message }}</p>
     </mat-dialog-content>
-
     <mat-dialog-actions class="dialog-actions">
         <button mat-button [mat-dialog-close]="false" *ngIf="data.cancelText" class="cancel-btn">
             {{ data.cancelText }}
