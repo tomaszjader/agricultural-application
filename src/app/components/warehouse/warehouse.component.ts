@@ -12,6 +12,7 @@ import {
   deleteDoc, query, where
 } from '@angular/fire/firestore'
 import { DialogService } from 'src/app/services/dialog.service';
+
 @Component({
   selector: 'app-warehouse',
   templateUrl: './warehouse.component.html',

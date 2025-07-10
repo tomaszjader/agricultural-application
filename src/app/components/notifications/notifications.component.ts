@@ -12,6 +12,7 @@ import {
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { map } from 'rxjs';
 import { DialogService } from 'src/app/services/dialog.service';
+
 @Component({
   selector: 'app-notifications',
   templateUrl: './notifications.component.html',
