@@ -9,4 +9,5 @@ export const environment = {
     messagingSenderId: '588489893396',
     measurementId: 'G-FEN1G23QKE',
   },
+  weatherApiKey: '4236a4e53c3f590a1468697fa05f828c'
 };
