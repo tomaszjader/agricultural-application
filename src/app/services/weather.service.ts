@@ -9,10 +9,12 @@ export interface WeatherData {
     temp_min: number;
     temp_max: number;
     feels_like: number;
+    humidity: number;
   };
   sys: {
     sunset: number;
   };
+  name: string;
 }
 
 @Injectable({

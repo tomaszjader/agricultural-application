@@ -26,11 +26,13 @@ export class WeatherWidgetComponent implements OnInit {
         temp: 0,
         temp_min: 0,
         temp_max: 0,
-        feels_like: 0
+        feels_like: 0,
+        humidity: 0
       },
       sys: {
         sunset: 0
       },
+      name: '',
       isDay: true,
       sunset_time: '',
       temp_celcius: '0',
