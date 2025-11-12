@@ -6,7 +6,7 @@ A web application for farm management, created as part of a bachelor's thesis, b
 
 - Built with **Angular** and **Firebase**
 - Styled with **SCSS** and based on **Material Design**
-- Written in **TypeScript** for maintainability and robustness
+- Written in **TypeScript**
 - Hosted on **GitHub Pages** for easy access and deployment
 - Implemented as a **Progressive Web App (PWA)**:
   - Can be installed on desktop and mobile devices
